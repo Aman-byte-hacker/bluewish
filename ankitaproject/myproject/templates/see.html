@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+ #prod{
+     margin-top: 10%;
+ }
+ @media only screen and (max-width: 600px) {
+    #prod {
+      margin-top: 15%;
+    }
+  }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="prod" class="row">
+                    {% for product in product %}
+                        <div style="margin-bottom: 5%;" class="col-lg-4 col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img style="display: block; width:200px; height:200px; margin-left:auto; margin-right:auto;" class="" src="{{product.image.url}}" alt="image">
+                                    <h5 style="text-align: center; text-transform:capitalize;" class="card-title">{{product.name}}</h5>
+                                    <p style="text-align:center;" class="card-text">{{product.description}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <p style="text-align: center; padding-top:2%;"><a href="/contact"><button class="btn btn-submit btn-primary col-lg-12 col-12">Contact us</button></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
